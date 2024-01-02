@@ -23,7 +23,25 @@
 .header{
   max-width: 500px;
 }
+
+.linha{
+  max-width: 500px;
 }
+}
+
+@media screen and (max-width:900px) {
+.header{
+  max-width: 600px;
+}
+
+.linha{
+  max-width: 600px;
+}
+
+
+}
+
+
 
 @media screen and (max-width:320px) {
 .header{
