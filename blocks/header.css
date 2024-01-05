@@ -26,6 +26,7 @@
 
   .linha {
     max-width: 500px;
+    padding: 5px 0 0;
   }
 }
 
@@ -35,24 +36,28 @@
   }
 
   .linha {
-    max-width: 600px;
+    max-width: 100%;
+  }
+
+  .logo{
+    padding-left: 10px;
   }
 }
 
-  @media screen and (max-width:320px) {
-    .header {
-      width: 320px;
-      padding-top: 18px;
-    }
+@media screen and (max-width:320px) {
+  .header {
+    width: 320px;
+    padding-top: 18px;
+  }
 
-    .logo {
-      width: 80px;
-      height: 24px;
-      margin-left: 10px;
-    }
+  .logo {
+    width: 80px;
+    height: 24px;
+    margin-left: 10px;
+  }
 
-    .linha {
+  .linha {
       width: 320px;
       padding-top: 0px;
-    }
+  }
   }
