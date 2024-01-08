@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Malhane Carvalho">
-    <meta name="description" content="EUA Afora">
-    <meta name="keywords" content="fotos, formulário e botões">
-    <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>EUA Afora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Malhane Carvalho">
+  <meta name="description" content="EUA Afora">
+  <meta name="keywords" content="fotos, formulário e botões">
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>EUA Afora</title>
 </head>
+
 <body>
   <header></header>
 
   <main class="content">
     <section class="profile">
-<div class="profile__container">
-  <img src="./images/person_image.jpg" alt="imagem do perfil" class="profile__image">
-</div>
-<div class="profile__info">
-  <h1 class="profile__title">Jacques Cousteau</h1>
-  <button type="button" class="profile__button profile__button_icon_edit"></button>
-  <p class="profile__subheading">Explorar</p>
-</div>
-<button type="button" class="profile__button-add profile__button-add_icon_add"></button>
+      <div class="profile__container">
+        <img src="./images/person_image.jpg" alt="imagem do perfil" class="profile__image">
+      </div>
+      <div class="profile__info">
+        <h1 class="profile__title">Jacques Cousteau</h1>
+        <button type="button" class="profile__button profile__button_icon_edit"></button>
+        <p class="profile__subheading">Explorar</p>
+      </div>
+      <button type="button" class="profile__button-add profile__button-add_icon_add"></button>
     </section>
+
+    <section class="popup popup-opened">
+      <div class="popup__icon">
+        <img src="./images/icone_fechar.svg" alt="icone fechar popup">
+      </div>
+      <h2 class="popup__title">Editar perfil</h2>
+      <div class="popup__container">
+        <input type="text" class="popup__description" placeholder="Name">
+        <input type="text" class="popup__description" placeholder="Sobre mim">
+        <button type="button" class="popup__button popup__button_text">Salvar</button>
+      </div>
+    </section>
+
   </main>
 
   <footer></footer>
 
   <script src="./scripts/script.js"></script>
 </body>
+
 </html>
