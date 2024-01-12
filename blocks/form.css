@@ -7,13 +7,13 @@
   border-radius: 10px;
   margin: auto;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 2px solid #000;
   display: none;
-
+  z-index: 1;
 }
 
 .popup-opened{
-  display: block;
+display: block;
 }
 
 .popup__container {
@@ -36,6 +36,24 @@
   max-height: 40px;
   transition: opacity 200ms ease-in-out;
 }
+/*
+.popup__close-button:hover{
+  opacity: 70%;
+}
+
+.popup__close-button{
+  background-image: url(../images/icone_fechar.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  border: none;
+  left: 430px;
+  bottom: 322px;
+  width: 40px;
+  height: 40px;
+  transition: opacity 200ms ease-in-out;
+  background-color: #000;
+}
+*/
 
 .popup__title {
   width: 330px;
@@ -47,7 +65,14 @@
   margin: 40px 33px;
 }
 
-.popup__description {
+.popup__description-name {
+  width: 83%;
+  height: 27px;
+  border: none;
+  border-bottom: 1px solid darkgray;
+}
+
+.popup__description-job {
   width: 83%;
   height: 27px;
   border: none;
@@ -85,7 +110,7 @@
     left: 0;
   }
 
-  .popup__icon{
+  .popup__close-button{
     left: 150px;
     top: 345px;
   }
@@ -98,7 +123,7 @@
     left: 185px;
   }
 
-  .popup__icon{
+  .popup__close-button{
     left: 380px;
     bottom: 322px;
   }

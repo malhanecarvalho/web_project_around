@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +17,6 @@
       <img src="./images/Vector.svg" alt="imagem Around the U.S." class="logo">
       <img src="./images/linha.jpg" alt="imagem linha horizontal" class="linha">
     </header>
-
     <main class="content">
       <section class="profile">
         <div class="profile__container">
@@ -31,6 +28,18 @@
           <p class="profile__subheading">Explorar</p>
         </div>
         <button type="button" class="profile__button-add profile__button-add_icon_add"></button>
+      </section>
+
+      <section class="popup">
+        <div class="popup__icon">
+          <img src="./images/icone_fechar.svg" alt="icone fechar popup">
+        </div>
+        <h2 class="popup__title">Editar perfil</h2>
+        <div class="popup__container">
+          <input type="text" class="popup__description-name" placeholder="Name">
+          <input type="text" class="popup__description-job" placeholder="Sobre mim">
+          <button type="button" class="popup__button popup__button_text">Salvar</button>
+        </div>
       </section>
 
       <section class="cards">
@@ -69,14 +78,12 @@
           <h2 class="cards__title">Lago di Braies</h2>
           <img src="./images/botao_curtir.svg" alt="botão curtir" class="cards__icon">
         </div>
-  </section>
-  </main>
-  <footer class="footer">
-    <p class="footer__text">© 2021 Around The U.S.</p>
-  </footer>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">© 2021 Around The U.S.</p>
+    </footer>
   </div>
   <script src="./scripts/script.js"></script>
 </body>
-
-
 </html>

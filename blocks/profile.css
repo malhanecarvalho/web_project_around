@@ -90,11 +90,46 @@
   background-position: center;
 }
 
+
+@media screen and (max-width:880px) {
+  .profile {
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .profile {
+    max-width: 768px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width:630px) {
+  .profile {
+    max-width: 600px;
+    padding: 12px;
+  }
+
+  .profile__info{
+    width: 55%;
+  }
+
+  .profile__title{
+    font-size: 22px;
+    width: 204px;
+  }
+
+  .profile__button-add{
+    width: 20%;
+  }
+}
+
 @media screen and (max-width:320px) {
   .profile {
     max-width: 100%;
     max-height: 286px;
     display: block;
+    padding: 0;
   }
 
   .profile__container {
@@ -137,57 +172,3 @@
   }
 }
 
-@media screen and (max-width:560px) {
-  .profile {
-    max-width: 560px;
-    display: contents;
-  }
-
-  .profile__container {
-    margin: 10px auto 0;
-  }
-
-  .profile__info {
-    max-width: 600px;
-    max-height: 50px;
-    display: flex;
-    justify-content: center;
-    column-gap: 0;
-    row-gap: 5px;
-    margin: auto;
-  }
-
-  .profile__title {
-    width: 260px;
-    height: 22px;
-    font-size: 25px;
-    text-align: center;
-    margin: 7px 0 0;
-  }
-
-  .profile__subheading {
-    width: 282px;
-    height: 14px;
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .profile__button {
-    width: 18px;
-    height: 18px;
-  }
-
-  .profile__button-add {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width:768px) {
-  .profile {
-    max-width: 768px;
-  }
-
-  .profile__container {
-    padding-left: 15px;
-  }
-}
