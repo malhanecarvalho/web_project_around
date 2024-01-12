@@ -7,6 +7,7 @@ A página Tripleten web_project_around é um projeto no programa de desenvolvedo
 - HTML5 semântico
 - Metodologia BEM
 - Flexbox
+- Grid
 - Posicionamento
 - Empilhamento vertical com z-index
 - Formulário
@@ -14,3 +15,5 @@ A página Tripleten web_project_around é um projeto no programa de desenvolvedo
 - Consultas de Mídia
 - DOM
 - Ramificações
+
+- Acesse o site [aqui](https://malhanecarvalho.github.io/web_project_around/)
