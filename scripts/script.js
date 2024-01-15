@@ -6,11 +6,13 @@ let jobInput = formElement.querySelector(".popup__description-job")
 let saveInput = formElement.querySelector(".popup__button_text")
 let profileNameInput = document.querySelector(".profile__title")
 let profileJobInput = document.querySelector(".profile__subheading")
+let elementOverlay = document.querySelector(".content")
 
 function changeDisplayToFlex(){
 formElement.classList.add("popup-opened")
 nameInput.value = profileNameInput.textContent
 jobInput.value = profileJobInput.textContent
+elementOverlay.classList.add("content-overlay")
 }
 
 function changeDisplayToNone(){
@@ -30,20 +32,14 @@ function handleProfileFormSubmit(evt) {
     profileJobInput.textContent = jobInput.value
   }
 
+  if ( saveInput !== ""){
+    profileNameInput.textContent = nameInput.value
+  }
+
   changeDisplayToNone()
 }
-
-  //let nameInput =  document.querySelector(".popup__description-name")
-  //let jobInput = document.querySelector(".popup__description-job")
-
-  saveInput.addEventListener("click", handleProfileFormSubmit)
+  saveInput.addEventListener("submit", handleProfileFormSubmit)
 
 
-  // Pegue os valores de cada campo do valor da propriedade correspondente
-
-  // Selecione os elementos aos quais os valores dos campos serão inseridos
-
-  // Insira novos valores usando a
-  // propriedade textContent
 
 

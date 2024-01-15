@@ -1,3 +1,8 @@
+.content-overlay {
+  background-color: #000;
+  opacity: 90%;
+}
+
 .profile {
   max-width: 880px;
   max-height: 120px;
@@ -89,6 +94,12 @@
   background-position: center;
 }
 
+.profile__overlay {
+  background-image: url(../images/Overlay.jpg);
+  opacity: 10%;
+  width: 880px;
+}
+
 
 @media screen and (max-width:880px) {
   .profile {
@@ -109,16 +120,16 @@
     padding: 12px;
   }
 
-  .profile__info{
+  .profile__info {
     width: 55%;
   }
 
-  .profile__title{
+  .profile__title {
     font-size: 22px;
     width: 204px;
   }
 
-  .profile__button-add{
+  .profile__button-add {
     width: 20%;
   }
 }
@@ -170,4 +181,3 @@
     margin-left: 14px;
   }
 }
-
