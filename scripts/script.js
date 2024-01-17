@@ -24,21 +24,9 @@ function changeDisplayToNone(){
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  if (nameInput !== ""){
-    profileNameInput.textContent = nameInput.value
-  }
-
-  if (nameInput !== ""){
-    profileJobInput.textContent = jobInput.value
-  }
-
-  if ( saveInput !== ""){
-    profileNameInput.textContent = nameInput.value
-  }
-
   changeDisplayToNone()
 }
-  saveInput.addEventListener("submit", handleProfileFormSubmit)
+  formElement.addEventListener("submit", handleProfileFormSubmit)
 
 
 
