@@ -23,12 +23,21 @@
   width: 282px;
   height: 282px;
   border-radius: 10px;
-  border-bottom: 55px solid #fff;
+  border-bottom: 65px solid #fff;
+}
+
+.cards__button-img{
+  position: absolute;
+  top: 40px;
+  width: 282px;
+  height: 239px;
+  background-color: unset;
+  border: none;
 }
 
 .cards__title {
   max-width: 246px;
-  height: 23px;
+  height: 29px;
   position: absolute;
   bottom: 0;
   left: 13px;
@@ -37,15 +46,44 @@
   font-weight: 900;
   line-height: 29px;
   color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.cards__icon {
+
+.cards__icon-like{
   width: 21px;
   height: 19px;
   position: absolute;
-  bottom: 18px;
+  bottom: 23px;
   right: 12px;
+  background-image: url(../images/botao_curtir.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: unset;
 }
+
+.cards__icon-like_active{
+  background-image: url(../images/botao_curtida.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cards__icon-trash {
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  left: 250px;
+  background-image: url(../images/Trash.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: unset;
+  border: none;
+}
+
 
 
 @media screen and (max-width:880px) {
@@ -55,7 +93,7 @@
     grid-template-rows: repeat(3, 2fr);
     column-gap: 0;
     overflow: auto;
-}
+  }
 }
 
 @media screen and (max-width:768px) {
@@ -65,7 +103,7 @@
     grid-template-rows: repeat(3, 2fr);
     column-gap: 0;
     overflow: auto;
-}
+  }
 }
 
 @media screen and (max-width:600px) {
@@ -76,11 +114,11 @@
     flex-wrap: wrap;
     justify-content: center;
     overflow: auto;
-}
+  }
 }
 
-@media screen and (max-width:320px){
-  .cards{
+@media screen and (max-width:320px) {
+  .cards {
     width: 100%;
     overflow: auto;
     display: flex;
@@ -90,26 +128,25 @@
 
   }
 
-  .cards__container{
+  .cards__container {
     width: 100%;
   }
 
-  .cards__image{
+  .cards__image {
     width: 100%;
     height: 282px;
     border-bottom: 55px solid #fff;
   }
 
-  .cards__title{
+  .cards__title {
     max-width: 240px;
     font-size: 21px;
   }
 
-  .cards__icon{
+  .cards__icon {
     width: 20px;
     height: 18px;
     right: 30px;
     bottom: 17px;
   }
 }
-
