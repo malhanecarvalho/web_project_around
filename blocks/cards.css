@@ -1,7 +1,7 @@
 .cards {
   box-sizing: border-box;
   max-width: 880px;
-  max-height: 743px;
+  min-height: 720px;
   margin: 50px auto;
   display: grid;
   grid-template-columns: repeat(3, 2fr);
