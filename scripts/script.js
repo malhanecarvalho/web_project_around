@@ -44,8 +44,8 @@ function handleProfileFormSubmit(evt) {
 }
 formElement.addEventListener("submit", handleProfileFormSubmit)
 
-// FUNÇÃO BOTÃO E EVENTO ADICIONAR
 
+// FUNÇÃO BOTÃO E EVENTO ADICIONAR
 function openDisplayToFlex() {
   formElementAdd.classList.add("popup-add-opened")
 }
@@ -60,10 +60,8 @@ closeButtonAdd.addEventListener("click", openDisplayToNone)
 
 function addButtonFormSubmit(evt, itens) {
   evt.preventDefault();
-  console.log("alguem clicou")
   addNewCard()
   openDisplayToNone()
-  console.log(evt)
 }
 formElementAdd.addEventListener("submit", addButtonFormSubmit)
 
@@ -117,8 +115,6 @@ function addCard(card) {
 
   })
   cardElement.querySelector(".cards__image").addEventListener("click", (evt)=>{
-    console.log("cliquei na imagem")
-    console.log(evt)
     imagePopupOnened.classList.add("popup-img-opened")
     const imagePopup = document.querySelector(".popup-img__photo")
     const titlePopup = document.querySelector(".popup-img__title")
@@ -158,46 +154,5 @@ function closePopupImage() {
 }
 closeImage.addEventListener("click", closePopupImage)
 
-/*
-const imagePopup = document.querySelector(".popup-img__photo")
-images.forEach((image, index) => {
-  image.addEventListener("click", (evt) => {
-    imagePopupOnened.classList.add("popup-img-opened")
-   const src = evt.target.offsetParent.children[1].src
-   const alt = evt.target.offsetParent.children[1].alt
-    imagePopup.setAttribute("src", src )
-    imagePopup.setAttribute("alt", alt )
-  })
-
-})
-*/
-/*
-initialCards.forEach((card, index) => {
-  images[index].setAttribute("src", card.link)
-  images[index].setAttribute("alt", card.name)
-  titles[index].innerText = card.name
-
-})
-
-
-const buttonTrash = document.querySelectorAll("#button")
-buttonTrash.forEach((item, index) => {
-  item.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    evt.target.offsetParent.remove();
-
-  })
-  return item
-})
-
-const buttonLike = document.querySelectorAll("#button-like")
-buttonLike.forEach((item, index) => {
-  item.addEventListener("click", (evt) => {
-    evt.preventDefault();
-    evt.target.classList.toggle("cards__icon-like_active")
-  })
-  return item
-})
-*/
 
 
