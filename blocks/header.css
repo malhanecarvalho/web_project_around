@@ -39,7 +39,7 @@
     max-width: 100%;
   }
 
-  .logo{
+  .logo {
     padding-left: 10px;
   }
 }
@@ -57,7 +57,7 @@
   }
 
   .linha {
-      width: 320px;
-      padding-top: 0px;
+    width: 320px;
+    padding-top: 0px;
   }
-  }
+}

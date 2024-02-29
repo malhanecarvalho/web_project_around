@@ -20,8 +20,6 @@ const closeImage = document.querySelector(".popup-img")
 const allCards = document.querySelector(".cards").children
 
 
-
-//FUNÇÃO BOTÃO E EVENTO EDITAR PERFIL
 function changeDisplayToFlex() {
   formElement.classList.add("popup-opened")
   nameInput.value = profileNameInput.textContent
@@ -35,19 +33,42 @@ function changeDisplayToNone() {
 editButton.addEventListener("click", changeDisplayToFlex)
 closeButton.addEventListener("click", changeDisplayToNone)
 
-
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameInput.textContent = nameInput.value
   profileJobInput.textContent = jobInput.value
   changeDisplayToNone()
 }
-formElement.addEventListener("submit", handleProfileFormSubmit)
+formElement.addEventListener("submit", handleProfileFormSubmit, clickClosePopup)
 
 
-// FUNÇÃO BOTÃO E EVENTO ADICIONAR
+function escapeKey(evt){
+  if(evt.key === "Escape"){
+    console.log(evt)
+    changeDisplayToNone()
+    openDisplayToNone()
+  }
+}
+
+formElement.addEventListener("keydown", escapeKey)
+formElementAdd.addEventListener("keydown", escapeKey)
+
+function clickClosePopup(evt){
+  if(evt.target.classList.contains("popup-opened") || evt.target.classList.contains("popup-add-opened") ){
+    openDisplayToNone()
+    changeDisplayToNone()
+    console.log(evt)
+     }
+}
+formElementAdd.addEventListener("click", clickClosePopup)
+formElement.addEventListener("click", clickClosePopup)
+
+
 function openDisplayToFlex() {
   formElementAdd.classList.add("popup-add-opened")
+  createButton.classList.add("popup__button_inactive")
+  createButton.classList.remove("popup-add__button")
+  createButton.classList.remove("popup-add__button_text")
 }
 
 function openDisplayToNone() {
@@ -66,9 +87,6 @@ function addButtonFormSubmit(evt, itens) {
 formElementAdd.addEventListener("submit", addButtonFormSubmit)
 
 
-
-
-// CARTÕES
 const container = document.querySelector(".cards")
 const iconAdd = document.querySelector(".profile__button-add")
 const iconClose = document.querySelector(".cards__icon-trash")
@@ -132,7 +150,6 @@ for (const card of initialCards) {
   container.append(cardItem)
 }
 
-//adicionar novo cartao
 function addNewCard() {
   const title = document.querySelector(".popup-add__description-title")
   const url = document.querySelector(".popup-add__description-link")
@@ -147,12 +164,9 @@ function addNewCard() {
   url.value = "";
 }
 
-
-// fechar popup da imagem
 function closePopupImage() {
   closeImage.classList.remove("popup-img-opened")
 }
 closeImage.addEventListener("click", closePopupImage)
-
 
 

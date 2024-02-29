@@ -1,11 +1,9 @@
-.page{
-    max-width: 1280px;
-    max-height: 1217px;
-    background-color: #000;
-    font-family: 'Inter', sans-serif;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
+.page {
+  max-width: 1280px;
+  max-height: 1217px;
+  background-color: #000;
+  font-family: 'Inter', sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
 }
-
-
