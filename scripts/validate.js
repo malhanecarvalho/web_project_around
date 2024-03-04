@@ -23,6 +23,7 @@ function buttonDisabled(index) {
 function buttonActive(index) {
   button[index].classList.remove("popup__button_inactive");
   button[index].removeAttribute("disabled", true);
+
 }
 
 function inputNameInvalid() {

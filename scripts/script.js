@@ -67,7 +67,6 @@ function openDisplayToFlex() {
   formElementAdd.classList.add("popup-add-opened");
   createButton.classList.add("popup__button_inactive");
   createButton.classList.remove("popup-add__button");
-  createButton.classList.remove("popup-add__button_text");
 }
 
 function openDisplayToNone() {
