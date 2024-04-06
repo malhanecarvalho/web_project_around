@@ -23,7 +23,7 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
-]
+];
 
 const container = document.querySelector(".cards");
 const imagePopupOnened = document.querySelector(".popup-img");
@@ -32,7 +32,6 @@ const titlePopup = document.querySelector(".popup-img__title");
 const popupCloseButton = document.querySelector(".popup-img__icon");
 const titleInput = document.querySelector(".popup-add__description-title");
 const urlInput = document.querySelector(".popup-add__description-link");
-
 
 class Card {
   constructor(name, link, cardSelector) {
@@ -70,7 +69,9 @@ class Card {
     this._setEventListeners();
 
     this._element.querySelector(".cards__title").textContent = titleInput.value;
-    this._element.querySelector(".cards__image").setAttribute("src", urlInput.value);
+    this._element
+      .querySelector(".cards__image")
+      .setAttribute("src", urlInput.value);
     this._element
       .querySelector(".cards__image")
       .setAttribute("alt", titleInput.value);
@@ -80,6 +81,7 @@ class Card {
 
   _handleOpenPopup() {
     imagePopup.src = this._link;
+    imagePopup.alt = this._name;
     titlePopup.textContent = this._name;
     imagePopupOnened.classList.add("popup-img-opened");
   }
@@ -120,33 +122,21 @@ const renderElements = () => {
     const card = new Card(item.name, item.link, ".card-template");
     const cardElement = card.generateCard();
 
- container.append(cardElement);
-});
+    container.append(cardElement);
+  });
 };
 renderElements();
 
-
 const addNewCard = () => {
-  const secondCards = [];
-  secondCards.push(initialCards[0]);
+  const card = new Card(titleInput.value, urlInput.value, ".card-template");
+  const cardElement = card.newCard();
 
-  secondCards.forEach((item) => {
-    const card = new Card(item.name, item.link, ".card-template");
-    const cardElement = card.newCard({
-      name: titleInput.value,
-      link: urlInput.value,
-    });
-
-    container.prepend(cardElement);
-  });
-}
+  container.prepend(cardElement);
+};
 
 const resetInputCard = () => {
   titleInput.value = " ";
   urlInput.value = " ";
-}
+};
 
 export { addNewCard, resetInputCard };
-
-
-

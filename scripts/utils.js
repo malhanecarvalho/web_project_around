@@ -14,6 +14,7 @@ const addButton = document.querySelector(".profile__button-add_icon_add");
 const formElementAdd = document.querySelector(".popup-add");
 const closeButtonAdd = formElementAdd.querySelector(".popup-add__icon");
 const createButton = formElementAdd.querySelector(".popup-add__button");
+const imagePopupOnened = document.querySelector(".popup-img");
 
 function changeDisplayToFlex() {
   formElement.classList.add("popup-opened");
@@ -25,7 +26,7 @@ function changeDisplayToNone() {
   formElement.classList.remove("popup-opened");
 }
 
-editButton.addEventListener("click", changeDisplayToFlex, enableValidation(false));
+editButton.addEventListener("click", changeDisplayToFlex, enableValidation());
 closeButton.addEventListener("click", changeDisplayToNone);
 
 function handleProfileFormSubmit(evt) {
@@ -43,7 +44,8 @@ function escapeKey(evt) {
     imagePopupOnened.classList.remove("popup-img-opened");
   }
 }
-document.addEventListener("keydown", escapeKey);
+document.addEventListener("keydown", escapeKey, true);
+document.removeEventListener("keydown", escapeKey, false);
 
 function clickClosePopup(evt) {
   if (
@@ -67,7 +69,7 @@ function openDisplayToNone() {
   formElementAdd.classList.remove("popup-add-opened");
 }
 
-addButton.addEventListener("click", openDisplayToFlex, enableValidation(true));
+addButton.addEventListener("click", openDisplayToFlex, enableValidation());
 closeButtonAdd.addEventListener("click", openDisplayToNone);
 
 function addButtonFormSubmit(evt, itens) {
