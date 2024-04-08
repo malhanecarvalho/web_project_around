@@ -24,6 +24,7 @@ function changeDisplayToFlex() {
 
 function changeDisplayToNone() {
   formElement.classList.remove("popup-opened");
+  document.removeEventListener("keydown", escapeKey, false);
 }
 
 editButton.addEventListener("click", changeDisplayToFlex, enableValidation());
@@ -45,7 +46,6 @@ function escapeKey(evt) {
   }
 }
 document.addEventListener("keydown", escapeKey, true);
-document.removeEventListener("keydown", escapeKey, false);
 
 function clickClosePopup(evt) {
   if (

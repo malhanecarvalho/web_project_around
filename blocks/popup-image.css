@@ -49,6 +49,28 @@
   margin: 0;
 }
 
+
+@media screen and (max-width: 1600px) {
+  .popup-img__icon {
+    right: 525px;
+    top: 365px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .popup-img__icon {
+    right: 365px;
+    top: 365px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .popup-img__icon {
+    right: 310px;
+    top: 130px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .popup-img {
     width: 100%;

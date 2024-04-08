@@ -85,7 +85,6 @@
 }
 
 
-
 @media screen and (max-width:880px) {
   .cards {
     max-width: 590px;
@@ -93,6 +92,7 @@
     grid-template-rows: repeat(3, 2fr);
     column-gap: 0;
     overflow: auto;
+    padding: 0;
   }
 }
 

@@ -160,7 +160,7 @@
   .profile__info {
     width: 90%;
     column-gap: 0;
-    row-gap: 20px;
+    row-gap: 10px;
     margin: 0;
     align-items: center;
 
@@ -168,7 +168,7 @@
 
   .profile__title {
     width: 196px;
-    height: 20px;
+    height: 35px;
     font-size: 20px;
     text-align: center;
     margin: 7px 0 0;
@@ -176,7 +176,7 @@
 
   .profile__subheading {
     width: 282px;
-    height: 14px;
+    height: 20px;
     font-size: 14px;
     text-align: center;
   }

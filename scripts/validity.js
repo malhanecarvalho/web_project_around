@@ -14,7 +14,7 @@ const spanUrl = document.querySelector("#input-url");
 const firstButton = document.querySelector("#button-form");
 const secondButton = document.querySelector("#button-form-add");
 
-const form = [
+const formSelector = [
   {
     formElement: { firstForm, secondForm },
     inputElement: { inputTitle },
@@ -35,7 +35,6 @@ const form = [
     inputElement: { InputUrl },
     errormessage: { spanUrl },
   },
-
 ];
 
 class FormValidator {
@@ -66,7 +65,6 @@ class FormValidator {
         spans[index].textContent = " ";
       }
     });
-
 
     return this._element;
   }
@@ -158,7 +156,7 @@ class FormValidator {
 
   export default function enableValidation(){
 
-  form.forEach((item) => {
+  formSelector.forEach((item) => {
     const formEdit = new FormValidator(".popup", item.inputElement)
     const formElement = formEdit.inputElements();
 
