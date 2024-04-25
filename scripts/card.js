@@ -1,4 +1,4 @@
-const initialCards = [
+ export const initialCards = [
   {
     name: "Vale de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
@@ -25,7 +25,7 @@ const initialCards = [
   },
 ];
 
-const container = document.querySelector(".cards");
+export const container = document.querySelector(".cards");
 const imagePopupOnened = document.querySelector(".popup-img");
 const imagePopup = document.querySelector(".popup-img__photo");
 const titlePopup = document.querySelector(".popup-img__title");
@@ -33,7 +33,7 @@ const popupCloseButton = document.querySelector(".popup-img__icon");
 const titleInput = document.querySelector(".popup-add__description-title");
 const urlInput = document.querySelector(".popup-add__description-link");
 
-class Card {
+ export default class Card {
   constructor(name, link, cardSelector) {
     this._name = name;
     this._link = link;
@@ -116,7 +116,7 @@ class Card {
     });
   }
 }
-
+/*
 const renderElements = () => {
   initialCards.forEach((item) => {
     const card = new Card(item.name, item.link, ".card-template");
@@ -125,7 +125,7 @@ const renderElements = () => {
     container.append(cardElement);
   });
 };
-renderElements();
+renderElements();*/
 
 const addNewCard = () => {
   const card = new Card(titleInput.value, urlInput.value, ".card-template");
