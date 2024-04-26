@@ -1,84 +1,87 @@
-import {addNewCard, resetInputCard} from "./card.js";
-import enableValidation from "./validity.js";
+export const initialCards = [
+  {
+    name: "Vale de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+  },
+  {
+    name: "Montanhas Carecas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+  },
+  {
+    name: "Parque Nacional da Vanoise ",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+  },
+];
 
-(function () {
+export const container = document.querySelector(".cards");
+export const imagePopup = document.querySelector(".popup-img__photo");
+export const titlePopup = document.querySelector(".popup-img__title");
+export const popupCloseButton = document.querySelector(".popup-img__icon");
+export const titleInput = document.querySelector(".popup-add__description-title");
+export const urlInput = document.querySelector(".popup-add__description-link");
 
-const editButton = document.querySelector(".profile__button_icon_edit");
-const formElement = document.querySelector(".popup");
-const closeButton = formElement.querySelector(".popup__icon");
-const nameInput = formElement.querySelector(".popup__description-name");
-const jobInput = formElement.querySelector(".popup__description-job");
-const profileNameInput = document.querySelector(".profile__title");
-const profileJobInput = document.querySelector(".profile__subheading");
-const addButton = document.querySelector(".profile__button-add_icon_add");
-const formElementAdd = document.querySelector(".popup-add");
-const closeButtonAdd = formElementAdd.querySelector(".popup-add__icon");
-const createButton = formElementAdd.querySelector(".popup-add__button");
-const imagePopupOnened = document.querySelector(".popup-img");
+export const editButton = document.querySelector(".profile__button_icon_edit");
+export const formElement = document.querySelector(".popup");
+export const closeButton = formElement.querySelector(".popup__icon");
+export const nameInput = formElement.querySelector(".popup__description-name");
+export const jobInput = formElement.querySelector(".popup__description-job");
+export const profileNameInput = document.querySelector(".profile__title");
+export const profileJobInput = document.querySelector(".profile__subheading");
+export const addButton = document.querySelector(".profile__button-add_icon_add");
 
-function changeDisplayToFlex() {
-  formElement.classList.add("popup-opened");
-  nameInput.value = profileNameInput.textContent;
-  jobInput.value = profileJobInput.textContent;
-}
+export const formElementAdd = document.querySelector(".popup-add");
+export const closeButtonAdd = formElementAdd.querySelector(".popup-add__icon");
+export const createButton = formElementAdd.querySelector(".popup-add__button");
+export const imagePopupOnened = document.querySelector(".popup-img");
 
-function changeDisplayToNone() {
-  formElement.classList.remove("popup-opened");
-  document.removeEventListener("keydown", escapeKey, false);
-}
+export const firstForm = document.querySelector("#form");
+export const secondForm = document.querySelector("#form-add");
 
-editButton.addEventListener("click", changeDisplayToFlex, enableValidation());
-closeButton.addEventListener("click", changeDisplayToNone);
+export const inputTitle = document.querySelector(".popup__description-name");
+export const inputJob = document.querySelector(".popup__description-job ");
+export const InputTitlePlace = document.querySelector(".popup-add__description-title");
+export const InputUrl = document.querySelector(".popup-add__description-link");
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileNameInput.textContent = nameInput.value;
-  profileJobInput.textContent = jobInput.value;
-  changeDisplayToNone();
-}
-formElement.addEventListener("submit", handleProfileFormSubmit);
+export const spanTitle = document.querySelector("#input-title");
+export const spanJob = document.querySelector("#input-job");
+export const spanPlaceTitle = document.querySelector("#input-place");
+export const spanUrl = document.querySelector("#input-url");
 
-function escapeKey(evt) {
-  if (evt.key === "Escape") {
-    changeDisplayToNone();
-    openDisplayToNone();
-    imagePopupOnened.classList.remove("popup-img-opened");
-  }
-}
-document.addEventListener("keydown", escapeKey, true);
+export const firstButton = document.querySelector("#button-form");
+export const secondButton = document.querySelector("#button-form-add");
 
-function clickClosePopup(evt) {
-  if (
-    evt.target.classList.contains("popup-opened") ||
-    evt.target.classList.contains("popup-add-opened")
-  ) {
-    openDisplayToNone();
-    changeDisplayToNone();
-  }
-}
-formElementAdd.addEventListener("click", clickClosePopup);
-formElement.addEventListener("click", clickClosePopup);
+export const formSelector = [
+  {
+    formElement: { firstForm, secondForm },
+    inputElement: { inputTitle },
+    errormessage: { spanTitle },
+  },
+  {
+    formElement: { firstForm, secondForm },
+    inputElement: { inputJob },
+    errormessage: { spanJob },
+  },
+  {
+    formElement: {firstForm, secondForm },
+    inputElement: { InputTitlePlace },
+    errormessage: { spanPlaceTitle },
+  },
+  {
+    formElement: { secondForm },
+    inputElement: { InputUrl },
+    errormessage: { spanUrl },
+  },
+];
 
-function openDisplayToFlex() {
-  formElementAdd.classList.add("popup-add-opened");
-  createButton.classList.add("popup__button_inactive");
-  createButton.classList.remove("popup-add__button");
-}
-
-function openDisplayToNone() {
-  formElementAdd.classList.remove("popup-add-opened");
-}
-
-addButton.addEventListener("click", openDisplayToFlex, enableValidation());
-closeButtonAdd.addEventListener("click", openDisplayToNone);
-
-function addButtonFormSubmit(evt, itens) {
-  evt.preventDefault();
-  addNewCard();
-  resetInputCard()
-  openDisplayToNone();
-
-}
-formElementAdd.addEventListener("submit", addButtonFormSubmit);
-
-})();

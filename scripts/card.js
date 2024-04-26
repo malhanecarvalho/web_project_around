@@ -1,37 +1,4 @@
- export const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
-
-export const container = document.querySelector(".cards");
-const imagePopupOnened = document.querySelector(".popup-img");
-const imagePopup = document.querySelector(".popup-img__photo");
-const titlePopup = document.querySelector(".popup-img__title");
-const popupCloseButton = document.querySelector(".popup-img__icon");
-const titleInput = document.querySelector(".popup-add__description-title");
-const urlInput = document.querySelector(".popup-add__description-link");
+import { initialCards, container, imagePopupOnened, imagePopup, titlePopup, popupCloseButton, titleInput, urlInput } from "./utils";
 
  export default class Card {
   constructor(name, link, cardSelector) {
@@ -117,16 +84,6 @@ const urlInput = document.querySelector(".popup-add__description-link");
   }
 }
 /*
-const renderElements = () => {
-  initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link, ".card-template");
-    const cardElement = card.generateCard();
-
-    container.append(cardElement);
-  });
-};
-renderElements();*/
-
 const addNewCard = () => {
   const card = new Card(titleInput.value, urlInput.value, ".card-template");
   const cardElement = card.newCard();
@@ -140,3 +97,4 @@ const resetInputCard = () => {
 };
 
 export { addNewCard, resetInputCard };
+*/
