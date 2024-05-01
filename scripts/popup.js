@@ -1,6 +1,6 @@
-
 import { enableValidation } from "./index.js";
 import { addNewCard, resetInputCard } from "./index.js";
+import { renderUser } from "./index.js";
 
 import {
   formElement,
@@ -17,15 +17,14 @@ import {
   imagePopupOnened,
 } from "./utils.js";
 
-export default class Popup {
+class Popup {
   constructor(popupSelector) {
     this._popupSelector = popupSelector;
   }
 
   open() {
     formElement.classList.add("popup-opened");
-    nameInput.value = profileNameInput.textContent;
-    jobInput.value = profileJobInput.textContent;
+    renderUser();
   }
 
   openPopupAdd() {
@@ -37,6 +36,7 @@ export default class Popup {
   close() {
     formElement.classList.remove("popup-opened");
     formElementAdd.classList.remove("popup-add-opened");
+    this._handleEscClose(false);
   }
 
   _handleEscClose() {
@@ -66,21 +66,7 @@ export default class Popup {
 
   setEventListeners() {
     this._clickClosePopup();
-    this._handleEscClose();
-
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      profileNameInput.textContent = nameInput.value;
-      profileJobInput.textContent = jobInput.value;
-      this.close();
-    });
-
-    formElementAdd.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      addNewCard();
-      resetInputCard();
-      this.close();
-    });
+    this._handleEscClose(true);
 
     editButton.addEventListener("click", () => {
       this.open();
@@ -90,6 +76,38 @@ export default class Popup {
     addButton.addEventListener("click", () => {
       this.openPopupAdd();
       enableValidation();
+    });
+  }
+}
+
+export default class PopupWithForm extends Popup {
+  constructor(popupSelector) {
+    super(popupSelector);
+  }
+
+  _getInputValues() {
+    profileNameInput.textContent = nameInput.value;
+    profileJobInput.textContent = jobInput.value;
+  }
+
+  close() {
+    super.close();
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._getInputValues();
+      this.close();
+    });
+
+    formElementAdd.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      addNewCard();
+      resetInputCard();
+      this.close();
     });
 
     closeButton.addEventListener("click", () => {

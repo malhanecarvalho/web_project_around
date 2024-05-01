@@ -1,20 +1,43 @@
-import {
-  firstForm,
-  secondForm,
-  inputTitle,
-  inputJob,
-  InputTitlePlace,
-  InputUrl,
-  spanTitle,
-  spanJob,
-  spanPlaceTitle,
-  spanUrl,
-  firstButton,
-  secondButton,
-  formSelector,
-} from "./utils";
+export const firstForm = document.querySelector("#form");
+export const secondForm = document.querySelector("#form-add");
 
-export default class FormValidator {
+const inputTitle = document.querySelector(".popup__description-name");
+const inputJob = document.querySelector(".popup__description-job ");
+const InputTitlePlace = document.querySelector(".popup-add__description-title");
+const InputUrl = document.querySelector(".popup-add__description-link");
+
+const spanTitle = document.querySelector("#input-title");
+const spanJob = document.querySelector("#input-job");
+const spanPlaceTitle = document.querySelector("#input-place");
+const spanUrl = document.querySelector("#input-url");
+
+const firstButton = document.querySelector("#button-form");
+const secondButton = document.querySelector("#button-form-add");
+
+export const formSelector = [
+  {
+    formElement: { firstForm, secondForm },
+    inputElement: { inputTitle },
+    errormessage: { spanTitle },
+  },
+  {
+    formElement: { firstForm, secondForm },
+    inputElement: { inputJob },
+    errormessage: { spanJob },
+  },
+  {
+    formElement: {firstForm, secondForm },
+    inputElement: { InputTitlePlace },
+    errormessage: { spanPlaceTitle },
+  },
+  {
+    formElement: { secondForm },
+    inputElement: { InputUrl },
+    errormessage: { spanUrl },
+  },
+];
+
+export class FormValidator {
   constructor(formElement) {
     this._formElement = formElement;
   }
@@ -27,10 +50,10 @@ export default class FormValidator {
     return formSelector;
   }
 
-  PopupForm() {
+  PopupForm(){
     this._element = this._formItens();
     const inputs = [inputTitle, inputJob];
-    const spans = [spanTitle, spanJob];
+    const spans = [spanTitle, spanJob]
     inputs.forEach((input, index) => {
       if (!input.validity.valid) {
         inputs[index].classList.add("popup__input_type_error");
@@ -46,10 +69,10 @@ export default class FormValidator {
     return this._element;
   }
 
-  PopupAddForm() {
-    this._element = this._formItens();
-    const inputs = [InputTitlePlace, InputUrl];
-    const spans = [spanPlaceTitle, spanUrl];
+ PopupAddForm(){
+  this._element = this._formItens();
+  const inputs = [InputTitlePlace, InputUrl];
+  const spans = [spanPlaceTitle, spanUrl]
     inputs.forEach((input, index) => {
       if (!input.validity.valid) {
         inputs[index].classList.add("popup__input_type_error");
@@ -62,8 +85,8 @@ export default class FormValidator {
       }
     });
 
-    return this._element;
-  }
+  return this._element;
+ }
 
   inputElements() {
     this._element = this._formItens();
@@ -90,7 +113,7 @@ export default class FormValidator {
 
   _checkInputValidity() {
     const inputs = [inputTitle, inputJob];
-    const spans = [spanTitle, spanJob, spanPlaceTitle, spanUrl];
+    const spans = [spanTitle, spanJob, spanPlaceTitle, spanUrl]
     inputs.forEach((input, index) => {
       if (!input.validity.valid) {
         inputs[index].classList.add("popup__input_type_error");
@@ -106,37 +129,39 @@ export default class FormValidator {
 
   _setEvents() {
     firstButton.addEventListener("submit", function (evt) {
-      evt.preventDefault();
+      evt.preventDefault()
     });
 
-    const inputs = [inputTitle, inputJob];
+      const inputs = [inputTitle, inputJob];
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        this.PopupForm();
-      });
+        this.PopupForm()
+    });
     });
 
     secondButton.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-      secondForm.reset();
+      evt.preventDefault()
+     secondForm.reset()
     });
 
-    const inputsAdd = [InputTitlePlace, InputUrl];
+    const inputsAdd = [ InputTitlePlace, InputUrl];
     inputsAdd.forEach((input) => {
       input.addEventListener("input", () => {
-        this.PopupAddForm();
+        this.PopupAddForm()
       });
     });
   }
+
 }
 
-export function enableValidation() {
+  export default function enableValidation(){
+
   formSelector.forEach((item) => {
-    const formEdit = new FormValidator(".popup", item.inputElement);
+    const formEdit = new FormValidator(".popup", item.inputElement)
     const formElement = formEdit.inputElements();
 
-    const formAdd = new FormValidator(".popup-add", item.inputElement);
+    const formAdd=  new FormValidator(".popup-add", item.inputElement)
     const formElementAdd = formAdd.inputElements();
     return formElement + formElementAdd;
   });
-}
+  }

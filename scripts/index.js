@@ -1,9 +1,8 @@
-
-import Card from "./card.js";
 import Section from "./section.js";
-import Popup from "./popup.js";
-import FormValidator from "./validity.js"
-import { container, initialCards } from "./utils.js";
+import PopupWithForm from "./popup.js";
+import { FormValidator, formSelector } from "./validity.js";
+import { Card, container, initialCards, titleInput, urlInput } from "./card.js";
+import { UserInfo, users } from "./userinfo.js";
 
 const cardItems = new Section({
   items: initialCards,
@@ -16,12 +15,6 @@ const cardItems = new Section({
 });
 
 cardItems.renderItems();
-
-const popups = new Popup(".popup");
-popups.setEventListeners();
-
-const popupAdd = new Popup(".popup-add");
-popupAdd.setEventListeners();
 
 const addNewCard = () => {
   const card = new Card(titleInput.value, urlInput.value, ".card-template");
@@ -37,13 +30,38 @@ const resetInputCard = () => {
 
 export { addNewCard, resetInputCard };
 
-export function enableValidation() {
-  formSelector.forEach((item) => {
-    const formEdit = new FormValidator(".popup", item.inputElement);
-    const formElement = formEdit.inputElements();
+const popups = new PopupWithForm(".popup");
+popups.setEventListeners();
 
-    const formAdd = new FormValidator(".popup-add", item.inputElement);
-    const formElementAdd = formAdd.inputElements();
-    return formElement + formElementAdd;
+const popupAdd = new PopupWithForm(".popup-add");
+popupAdd.setEventListeners();
+
+export const enableValidation = () => {
+  const forms = new Section({
+    items: formSelector,
+    renderer: (item) => {
+      const formEdit = new FormValidator(".popup", item.inputElement);
+      const formElement = formEdit.inputElements();
+
+      const formAdd = new FormValidator(".popup-add", item.inputElement);
+      const formElementAdd = formAdd.inputElements();
+      return formElement + formElementAdd;
+    },
   });
-}
+
+  forms.renderItems();
+};
+
+export const renderUser = () => {
+  const user = new Section({
+    items: users,
+    renderer: (item) => {
+      const userForm = new UserInfo(item.name, item.job);
+      const userElement = userForm.setUserInfo();
+
+      return userElement;
+    },
+  });
+
+  user.renderItems();
+};
