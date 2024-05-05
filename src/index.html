@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Malhane Carvalho">
+  <meta name="description" content="EUA Afora">
+  <meta name="keywords" content="fotos, formulário e botões">
+  <link rel="icon" href="./favicon.ico">
+  <title>EUA Afora</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="logo" alt="imagem Around the U.S." src="<%= require('./images/Vector.svg')%>">
+      <img class="linha" alt="imagem linha horizontal" src="<%= require('./images/linha.jpg')%>">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__container">
+          <img class="profile__image" alt="imagem do perfil" src="<%= require('./images/person_image.jpg')%>">
+        </div>
+        <div class="profile__info">
+          <h1 class="profile__title">Jacques Cousteau</h1>
+          <p class="profile__subheading">Explorar</p>
+          <button type="button" class="profile__button profile__button_icon_edit"></button>
+        </div>
+        <button type="button" class="profile__button-add profile__button-add_icon_add"></button>
+      </section>
+
+      <section class="popup" id="popup">
+        <div class="popup__container">
+          <img class="popup__icon" alt="icone fechar popup" src="<%= require('./images/icone_fechar.svg')%>">
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form" id="form" name="formname" novalidate>
+            <div class="popup__form-display">
+              <input type="text" class="popup__description-name popup__input" placeholder="Name" minlength="2"
+                maxlength="40" required>
+              <span id="input-title" class="popup__span-message"></span>
+            </div>
+            <div class="popup__form-display">
+              <input type="text" class="popup__description-job  popup__input" placeholder="Sobre mim" minlength="2"
+                maxlength="200" required>
+              <span id="input-job" class="popup__span-message"></span>
+            </div>
+            <button type="submit" class="popup__button" id="button-form" name="buttons-forms">Salvar</button>
+          </form>
+        </div>
+      </section>
+
+      <section class=" popup popup-add" id="popup-add">
+        <div class="popup-add__container">
+          <img class="popup-add__icon" alt="icone fechar popup" src="<%= require('./images/icone_fechar.svg')%>">
+          <h2 class="popup-add__title">Novo lugar</h2>
+          <form class=" popup__form popup-add__form" id="form-add" name="forname" novalidate>
+            <div class="popup-add__form-display">
+              <input type="text" class="popup-add__description-title popup__input" placeholder="Titulo" minlength="2"
+                maxlength="30" required>
+              <span id="input-place" class="popup__span-message"></span>
+            </div>
+            <div class="popup-add__form-display">
+              <input type="url" class="popup-add__description-link popup__input" placeholder="Link da imagem" required>
+              <span id="input-url" class="popup__span-message"></span>
+            </div>
+            <button type="submit" class="popup__button popup-add__button" id="button-form-add"
+              name="buttons-forms">Criar</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="popup-img">
+        <img class="popup-img__icon" id="close-popup" alt="icone fechar popup"
+          src="<%= require('./images/icone_fechar.svg')%>">
+        <ul class="popup-img__container">
+          <li><img src="#" alt="" class="popup-img__photo"></li>
+          <li>
+            <h3 class="popup-img__title"></h3>
+          </li>
+        </ul>
+      </section>
+
+      <section class="cards">
+      </section>
+
+    </main>
+    <template id="template" class="card-template">
+      <div class="cards__container">
+        <button class="cards__icon-trash"></button>
+        <img src="#" alt="" class="cards__image">
+        <h2 class="cards__title"></h2>
+        <button class="cards__icon-like"></button>
+      </div>
+    </template>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2021 Around The U.S.</p>
+    </footer>
+  </div>
+
+</body>
+
+</html>
