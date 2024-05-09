@@ -54,18 +54,21 @@ export class FormValidator {
     this._element = this._formItens();
     const inputs = [inputTitle, inputJob];
     const spans = [spanTitle, spanJob]
+    let allValid = true;
     inputs.forEach((input, index) => {
-      if (!input.validity.valid) {
+      if (!input.validity.valid || input.value.trim() === "") {
         inputs[index].classList.add("popup__input_type_error");
         spans[index].textContent = input.validationMessage;
         this._buttonDisabled();
+        allValid = false;
       } else {
-        this._buttonActive();
         input.classList.remove("popup__input_type_error");
         spans[index].textContent = " ";
       }
     });
-
+    if (allValid) {
+      this._buttonActive();
+    }
     return this._element;
   }
 
@@ -73,18 +76,21 @@ export class FormValidator {
   this._element = this._formItens();
   const inputs = [InputTitlePlace, InputUrl];
   const spans = [spanPlaceTitle, spanUrl]
+  let allValid = true;
     inputs.forEach((input, index) => {
-      if (!input.validity.valid) {
+      if (!input.validity.valid || input.value.trim() === "") {
         inputs[index].classList.add("popup__input_type_error");
         spans[index].textContent = input.validationMessage;
         this._buttonDisabled();
+       allValid = false;
       } else {
-        this._buttonActive();
         input.classList.remove("popup__input_type_error");
         spans[index].textContent = " ";
       }
     });
-
+    if (allValid) {
+      this._buttonActive();
+    }
   return this._element;
  }
 

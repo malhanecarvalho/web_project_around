@@ -1,5 +1,4 @@
 import { enableValidation } from "../pages/index.js";
-import { addNewCard, resetInputCard } from "../pages/index.js";
 import { renderUser } from "../pages/index.js";
 
 import {
@@ -105,8 +104,6 @@ export default class PopupWithForm extends Popup {
 
     formElementAdd.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      addNewCard();
-      resetInputCard();
       this.close();
     });
 
@@ -118,4 +115,5 @@ export default class PopupWithForm extends Popup {
       this.close();
     });
   }
+
 }

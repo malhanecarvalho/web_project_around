@@ -15,5 +15,7 @@ A página Tripleten web_project_around é um projeto no programa de desenvolvedo
 - Consultas de Mídia
 - DOM
 - Ramificações
+- POO
+- Webpack
 
 - Acesse o site [aqui](https://malhanecarvalho.github.io/web_project_around/)

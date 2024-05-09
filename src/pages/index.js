@@ -5,6 +5,7 @@ import PopupWithForm from "../components/popup.js";
 import { FormValidator, formSelector } from "../components/validity.js";
 import { Card, container, initialCards, titleInput, urlInput } from "../components/card.js";
 import { UserInfo, users } from "../components/userinfo.js";
+import { createButton } from "../components/utils.js";
 
 const cardItems = new Section({
   items: initialCards,
@@ -30,7 +31,11 @@ const resetInputCard = () => {
   urlInput.value = " ";
 };
 
-export { addNewCard, resetInputCard };
+createButton.addEventListener("click",  () =>{
+  addNewCard()
+  resetInputCard()
+});
+
 
 const popups = new PopupWithForm(".popup");
 popups.setEventListeners();
