@@ -23,6 +23,6 @@ export const selectors = {
 export const closeIcon = document.querySelector(".popup-delete__icon")
 export const btnConfirm = document.querySelector("#popup-confirmation");
 export const profileContainer = document.querySelector(".profile__container");
-export const iconEdit = document.querySelector(".profile__icon_avatar");
+export const iconEdit = document.querySelector(".profile__icon-avatar");
 export const btnEditavatar = document.querySelector(".popup-edit__button");
 export const popupEdit = document.querySelector(".popup-edit");

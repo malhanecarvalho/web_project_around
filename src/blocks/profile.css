@@ -114,7 +114,7 @@
   width: 880px;
 }
 
-.profile__icon_avatar {
+.profile__icon-avatar {
   background-repeat: no-repeat;
   background-position: center;
   width: 24px;
@@ -125,14 +125,14 @@
 }
 
 @media screen and (max-width:1280px) {
-  .profile__icon_avatar {
+  .profile__icon-avatar {
     top: 290px;
     left: 237px;
   }
 }
 
 @media screen and (max-width:1023px) {
-  .profile__icon_avatar {
+  .profile__icon-avatar {
     top: 250px;
     left: 120px;
   }
@@ -144,7 +144,7 @@
     padding: 12px;
   }
 
-  .profile__icon_avatar {
+  .profile__icon-avatar {
     top: 265px;
     left: 60px;
   }
@@ -156,10 +156,10 @@
     padding: 12px;
   }
 
- /* .profile__icon_avatar {
+  .profile__icon-avatar {
     top: 222px;
     left: 60px;
-  }*/
+  }
 }
 
 @media screen and (max-width:630px) {
@@ -277,7 +277,7 @@
     margin-left: 14px;
   }
 
-  .profile__icon_avatar {
+  .profile__icon-avatar {
     top: 173px;
     left: 150px;
   }
