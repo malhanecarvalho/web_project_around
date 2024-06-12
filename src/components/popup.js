@@ -1,119 +1,55 @@
-import { enableValidation } from "../pages/index.js";
-import { renderUser } from "../pages/index.js";
-
-import {
-  formElement,
-  editButton,
-  closeButton,
-  nameInput,
-  jobInput,
-  profileNameInput,
-  profileJobInput,
-  addButton,
-  formElementAdd,
-  closeButtonAdd,
-  createButton,
-  imagePopupOnened,
-} from "./utils.js";
-
-class Popup {
+export default class Popup {
   constructor(popupSelector) {
-    this._popupSelector = popupSelector;
+    this._popupElement = document.querySelector(popupSelector);
+    this._popupElementAdd = document.querySelector(popupSelector);
+    this._popupElementEdit = document.querySelector(popupSelector);
   }
 
   open() {
-    formElement.classList.add("popup-opened");
-    renderUser();
-  }
+    this._popupElement.classList.add("popup-opened");
+    this._popupElementAdd.classList.add("popup-add-opened");
+    document.addEventListener("keydown", this._handleEscClose);
 
-  openPopupAdd() {
-    formElementAdd.classList.add("popup-add-opened");
-    createButton.classList.add("popup__button_inactive");
-    createButton.classList.remove("popup-add__button");
+    if ((this._popupElementEdit.style.display = "none")) {
+      this._popupElementEdit.style.display = "block";
+    }
   }
 
   close() {
-    formElement.classList.remove("popup-opened");
-    formElementAdd.classList.remove("popup-add-opened");
-    this._handleEscClose(false);
+    this._popupElement.classList.remove("popup-opened");
+    this._popupElementAdd.classList.remove("popup-add-opened");
+    document.removeEventListener("keydown", this._handleEscClose);
+
+    if ((this._popupElementEdit.style.display = "block")) {
+      this._popupElementEdit.style.display = "none";
+    }
   }
 
-  _handleEscClose() {
-    document.addEventListener("keydown", function (evt) {
-      if (evt.key === "Escape") {
-        formElement.classList.remove("popup-opened");
-        formElementAdd.classList.remove("popup-add-opened");
-        imagePopupOnened.classList.remove("popup-img-opened");
-      }
-    });
-  }
+  _handleEscClose = (evt) => {
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  };
 
   _clickClosePopup() {
-    const forms = [formElement, formElementAdd];
-    forms.forEach((item) => {
-      item.addEventListener("click", function (evt) {
-        if (
-          evt.target.classList.contains("popup-opened") ||
-          evt.target.classList.contains("popup-add-opened")
-        ) {
-          formElement.classList.remove("popup-opened");
-          formElementAdd.classList.remove("popup-add-opened");
-        }
+    this._popupElement.addEventListener("click", function (evt) {
+      if (
+        evt.target.classList.contains("popup-opened") ||
+        evt.target.classList.contains("popup-add-opened")
+      ) {
+        evt.target.classList.remove("popup-opened");
+      }
+      evt.target.classList.remove("popup-add-opened");
+    });
+  }
+
+  setEventListeners() {
+    const icons = this._popupElement.querySelectorAll(".popup__icon");
+    icons.forEach((item) => {
+      item.addEventListener("click", () => {
+        this.close();
       });
+      this._clickClosePopup();
     });
   }
-
-  setEventListeners() {
-    this._clickClosePopup();
-    this._handleEscClose(true);
-
-    editButton.addEventListener("click", () => {
-      this.open();
-      enableValidation();
-    });
-
-    addButton.addEventListener("click", () => {
-      this.openPopupAdd();
-      enableValidation();
-    });
-  }
-}
-
-export default class PopupWithForm extends Popup {
-  constructor(popupSelector) {
-    super(popupSelector);
-  }
-
-  _getInputValues() {
-    profileNameInput.textContent = nameInput.value;
-    profileJobInput.textContent = jobInput.value;
-  }
-
-  close() {
-    super.close();
-  }
-
-  setEventListeners() {
-    super.setEventListeners();
-
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._getInputValues();
-      this.close();
-    });
-
-    formElementAdd.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this.close();
-    });
-
-    closeButton.addEventListener("click", () => {
-      this.close();
-    });
-
-    closeButtonAdd.addEventListener("click", () => {
-      this.close();
-    });
-  }
-
 }

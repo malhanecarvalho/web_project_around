@@ -12,21 +12,26 @@
   background-color: #000;
 }
 
+.profile__container:hover{
+  opacity: 50%;
+}
+
 .profile__container {
   max-width: 120px;
   max-height: 120px;
   background-image: url(../images/Ellipse.jpg);
+  transition: opacity 200ms ease-in-out;
 }
 
 .profile__image {
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
 .profile__info {
   max-width: 414px;
-  max-height: 77px;
+  max-height: 100px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -45,7 +50,6 @@
   font-family: "inter", sans-serif;
   font-weight: 500;
   font-size: 42px;
-  line-height: 56px;
   color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -54,11 +58,10 @@
 
 .profile__subheading {
   max-width: 372px;
-  max-height: 18px;
+  max-height: 24px;
   font-family: "inter", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 22px;
   color: #fff;
   margin: 0;
   text-overflow: ellipsis;
@@ -92,7 +95,7 @@
 .profile__button-add {
   width: 150px;
   height: 50px;
-  margin-top: 34px;
+  margin-top: 27px;
   background-color: #000;
   border: 1px solid #fff;
   border-radius: 2px;
@@ -111,10 +114,25 @@
   width: 880px;
 }
 
+.profile__icon_avatar {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  position: fixed;
+  top: 290px;
+  left: 178px;
+}
+
 
 @media screen and (max-width:880px) {
   .profile {
     padding: 12px;
+  }
+
+  .profile__icon_avatar {
+    top: 265px;
+    left: 60px;
   }
 }
 
@@ -122,6 +140,11 @@
   .profile {
     max-width: 768px;
     padding: 12px;
+  }
+
+  .profile__icon_avatar {
+    top: 222px;
+    left: 60px;
   }
 }
 
@@ -142,6 +165,54 @@
 
   .profile__button-add {
     width: 20%;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .profile {
+    max-width: 100%;
+    max-height: 286px;
+    display: block;
+    padding: 0;
+  }
+
+  .profile__container {
+    margin: auto;
+  }
+
+  .profile__info {
+    width: 90%;
+    column-gap: 0;
+    row-gap: 10px;
+    margin: 0;
+    align-items: center;
+
+  }
+
+  .profile__title {
+    width: 196px;
+    height: 35px;
+    font-size: 20px;
+    text-align: center;
+    margin: 7px 0 0;
+  }
+
+  .profile__subheading {
+    width: 282px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .profile__button {
+    width: 19px;
+    height: 18px;
+    margin: 27px 0 0 -55px;
+  }
+
+  .profile__button-add {
+    width: 90%;
+    margin-left: 14px;
   }
 }
 
@@ -190,5 +261,10 @@
   .profile__button-add {
     width: 90%;
     margin-left: 14px;
+  }
+
+  .profile__icon_avatar {
+    top: 173px;
+    left: 150px;
   }
 }

@@ -1,18 +1,22 @@
-export const firstForm = document.querySelector("#form");
-export const secondForm = document.querySelector("#form-add");
+const firstForm = document.querySelector("#form");
+const secondForm = document.querySelector("#form-add");
+const formEdit = document.querySelector("#form-edit");
 
 const inputTitle = document.querySelector(".popup__description-name");
 const inputJob = document.querySelector(".popup__description-job ");
 const InputTitlePlace = document.querySelector(".popup-add__description-title");
 const InputUrl = document.querySelector(".popup-add__description-link");
+const inputEditUrl = document.querySelector(".popup-edit__description-link");
 
 const spanTitle = document.querySelector("#input-title");
 const spanJob = document.querySelector("#input-job");
 const spanPlaceTitle = document.querySelector("#input-place");
 const spanUrl = document.querySelector("#input-url");
+const spanEditUrl = document.querySelector("#input-edit-url");
 
 const firstButton = document.querySelector("#button-form");
 const secondButton = document.querySelector("#button-form-add");
+const editButton = document.querySelector("#button-form-edit");
 
 export const formSelector = [
   {
@@ -26,7 +30,7 @@ export const formSelector = [
     errormessage: { spanJob },
   },
   {
-    formElement: {firstForm, secondForm },
+    formElement: { firstForm, secondForm },
     inputElement: { InputTitlePlace },
     errormessage: { spanPlaceTitle },
   },
@@ -34,6 +38,11 @@ export const formSelector = [
     formElement: { secondForm },
     inputElement: { InputUrl },
     errormessage: { spanUrl },
+  },
+  {
+    formElement: { formEdit },
+    inputElement: { inputEditUrl },
+    errormessage: { spanEditUrl },
   },
 ];
 
@@ -50,10 +59,10 @@ export class FormValidator {
     return formSelector;
   }
 
-  PopupForm(){
+  PopupForm() {
     this._element = this._formItens();
     const inputs = [inputTitle, inputJob];
-    const spans = [spanTitle, spanJob]
+    const spans = [spanTitle, spanJob];
     let allValid = true;
     inputs.forEach((input, index) => {
       if (!input.validity.valid || input.value.trim() === "") {
@@ -72,17 +81,17 @@ export class FormValidator {
     return this._element;
   }
 
- PopupAddForm(){
-  this._element = this._formItens();
-  const inputs = [InputTitlePlace, InputUrl];
-  const spans = [spanPlaceTitle, spanUrl]
-  let allValid = true;
+  PopupAddForm() {
+    this._element = this._formItens();
+    const inputs = [InputTitlePlace, InputUrl];
+    const spans = [spanPlaceTitle, spanUrl];
+    let allValid = true;
     inputs.forEach((input, index) => {
       if (!input.validity.valid || input.value.trim() === "") {
         inputs[index].classList.add("popup__input_type_error");
         spans[index].textContent = input.validationMessage;
         this._buttonDisabled();
-       allValid = false;
+        allValid = false;
       } else {
         input.classList.remove("popup__input_type_error");
         spans[index].textContent = " ";
@@ -91,8 +100,30 @@ export class FormValidator {
     if (allValid) {
       this._buttonActive();
     }
-  return this._element;
- }
+    return this._element;
+  }
+
+  PopupEditForm() {
+    this._element = this._formItens();
+    const inputs = [inputEditUrl];
+    const spans = [spanEditUrl];
+    let allValid = true;
+    inputs.forEach((input, index) => {
+      if (!input.validity.valid) {
+        inputs[index].classList.add("popup__input_type_error");
+        spans[index].textContent = input.validationMessage;
+        this._buttonDisabled();
+        allValid = false;
+      } else {
+        input.classList.remove("popup__input_type_error");
+        spans[index].textContent = " ";
+      }
+    });
+    if (allValid) {
+      this._buttonActive();
+    }
+    return this._element;
+  }
 
   inputElements() {
     this._element = this._formItens();
@@ -102,7 +133,7 @@ export class FormValidator {
   }
 
   _buttonDisabled() {
-    const buttons = [firstButton, secondButton];
+    const buttons = [firstButton, secondButton, editButton];
     buttons.forEach((button) => {
       button.classList.add("popup__button_inactive");
       button.setAttribute("disabled", true);
@@ -110,7 +141,7 @@ export class FormValidator {
   }
 
   _buttonActive() {
-    const buttons = [firstButton, secondButton];
+    const buttons = [firstButton, secondButton, editButton];
     buttons.forEach((button) => {
       button.classList.remove("popup__button_inactive");
       button.removeAttribute("disabled", true);
@@ -119,9 +150,9 @@ export class FormValidator {
 
   _checkInputValidity() {
     const inputs = [inputTitle, inputJob];
-    const spans = [spanTitle, spanJob, spanPlaceTitle, spanUrl]
+    const spans = [spanTitle, spanJob, spanPlaceTitle, spanUrl];
     inputs.forEach((input, index) => {
-      if (!input.validity.valid) {
+      if (!input.validity.valid || input.value.trim() === "") {
         inputs[index].classList.add("popup__input_type_error");
         spans[index].textContent = input.validationMessage;
         this._buttonDisabled();
@@ -135,39 +166,38 @@ export class FormValidator {
 
   _setEvents() {
     firstButton.addEventListener("submit", function (evt) {
-      evt.preventDefault()
+      evt.preventDefault();
     });
 
-      const inputs = [inputTitle, inputJob];
+    const inputs = [inputTitle, inputJob];
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        this.PopupForm()
-    });
+        this.PopupForm();
+      });
     });
 
     secondButton.addEventListener("submit", function (evt) {
-      evt.preventDefault()
-     secondForm.reset()
+      evt.preventDefault();
+      secondForm.reset();
     });
 
-    const inputsAdd = [ InputTitlePlace, InputUrl];
+    const inputsAdd = [InputTitlePlace, InputUrl];
     inputsAdd.forEach((input) => {
       input.addEventListener("input", () => {
-        this.PopupAddForm()
+        this.PopupAddForm();
+      });
+    });
+
+    editButton.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+      formEdit.reset();
+    });
+
+    const inputEdit = [inputEditUrl];
+    inputEdit.forEach((input) => {
+      input.addEventListener("input", () => {
+        this.PopupEditForm();
       });
     });
   }
-
 }
-
-  export default function enableValidation(){
-
-  formSelector.forEach((item) => {
-    const formEdit = new FormValidator(".popup", item.inputElement)
-    const formElement = formEdit.inputElements();
-
-    const formAdd=  new FormValidator(".popup-add", item.inputElement)
-    const formElementAdd = formAdd.inputElements();
-    return formElement + formElementAdd;
-  });
-  }

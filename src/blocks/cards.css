@@ -26,7 +26,7 @@
   border-bottom: 65px solid #fff;
 }
 
-.cards__button-img{
+.cards__button-img {
   position: absolute;
   top: 40px;
   width: 282px;
@@ -52,11 +52,11 @@
 }
 
 
-.cards__icon-like{
+.cards__icon-like {
   width: 21px;
   height: 19px;
   position: absolute;
-  bottom: 23px;
+  bottom: 25px;
   right: 12px;
   background-image: url(../images/botao_curtir.svg);
   background-repeat: no-repeat;
@@ -65,10 +65,26 @@
   background-color: unset;
 }
 
-.cards__icon-like_active{
+.cards__icon-like_active {
   background-image: url(../images/botao_curtida.svg);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.cards__icon-like_remove {
+  background-image: url(../images/botao_curtir.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.cards__icon-like_count {
+  color: black;
+  font-size: 13px;
+  font-family: Inter;
+  font-weight: 400;
+  position: absolute;
+  left: 255px;
+  top: 329px;
 }
 
 .cards__icon-trash {
@@ -84,6 +100,19 @@
   border: none;
 }
 
+.cards__icon-trash-visible {
+  display: block;
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  left: 250px;
+  background-image: url(../images/Trash.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: unset;
+  border: none;
+}
 
 @media screen and (max-width:880px) {
   .cards {

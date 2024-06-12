@@ -7,7 +7,7 @@
   <meta name="author" content="Malhane Carvalho">
   <meta name="description" content="EUA Afora">
   <meta name="keywords" content="fotos, formulário e botões">
-  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" href="../favicon.ico">
   <title>EUA Afora</title>
 </head>
 
@@ -21,6 +21,8 @@
       <section class="profile">
         <div class="profile__container">
           <img class="profile__image" alt="imagem do perfil" src="<%= require('./images/person_image.jpg')%>">
+          <img class="profile__icon_avatar" src="<%= require('./images/icone_editar.svg')%>" alt="icone editar foto do perfil" style="display: none;">
+
         </div>
         <div class="profile__info">
           <h1 class="profile__title">Jacques Cousteau</h1>
@@ -36,12 +38,12 @@
           <h2 class="popup__title">Editar perfil</h2>
           <form class="popup__form" id="form" name="formname" novalidate>
             <div class="popup__form-display">
-              <input type="text" class="popup__description-name popup__input" placeholder="Name" minlength="2"
+              <input type="text" class="popup__description-name popup__input" name="name" placeholder="Name" minlength="2"
                 maxlength="40" required>
               <span id="input-title" class="popup__span-message"></span>
             </div>
             <div class="popup__form-display">
-              <input type="text" class="popup__description-job  popup__input" placeholder="Sobre mim" minlength="2"
+              <input type="text" class="popup__description-job  popup__input" name="about" placeholder="Sobre mim" minlength="2"
                 maxlength="200" required>
               <span id="input-job" class="popup__span-message"></span>
             </div>
@@ -52,9 +54,9 @@
 
       <section class=" popup popup-add" id="popup-add">
         <div class="popup-add__container">
-          <img class="popup-add__icon" alt="icone fechar popup" src="<%= require('./images/icone_fechar.svg')%>">
+          <img class="popup__icon popup-add__icon" alt="icone fechar popup" src="<%= require('./images/icone_fechar.svg')%>">
           <h2 class="popup-add__title">Novo lugar</h2>
-          <form class=" popup__form popup-add__form" id="form-add" name="forname" novalidate>
+          <form class="popup__form popup-add__form" id="form-add" name="forname" novalidate>
             <div class="popup-add__form-display">
               <input type="text" class="popup-add__description-title popup__input" placeholder="Titulo" minlength="2"
                 maxlength="30" required>
@@ -81,6 +83,30 @@
         </ul>
       </section>
 
+      <section class="popup-delete" id="popup-confirmation" style="display: none;">
+        <div class="popup-delete__itens">
+        <img class="popup-delete__icon" id="close-popup" alt="icone fechar popup"
+        src="<%= require('./images/icone_fechar.svg')%>">
+     <h2 class="popup-delete__title">Tem Certeza?</h2>
+     <button type="submit" class="popup-delete__button">Sim</button>
+        </div>
+      </section>
+
+      <section class="popup popup-edit" style="display: none;">
+<div class="popup-edit__container">
+  <img class="popup__icon popup-edit__icon"alt="icone fechar popup"
+        src="<%= require('./images/icone_fechar.svg')%>">
+  <h2 class="popup-edit__title">Alterar a foto do perfil</h2>
+  <form class="popup__form popup-edit__form" id="form-edit" novalidate>
+    <input type="url" class="popup-edit__description-link popup__input" name="image" placeholder="Link da imagem" required>
+    <span id="input-edit-url" class="popup__span-message"></span>
+    <button type="submit" class="popup__button popup-edit__button" id="button-form-edit">Salvar</button>
+  </form>
+
+
+</div>
+      </section>
+
       <section class="cards">
       </section>
 
@@ -91,6 +117,7 @@
         <img src="#" alt="" class="cards__image">
         <h2 class="cards__title"></h2>
         <button class="cards__icon-like"></button>
+        <span class="cards__icon-like_count"></span>
       </div>
     </template>
 

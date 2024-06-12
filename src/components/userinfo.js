@@ -1,26 +1,25 @@
-export const users = [
-  {
-    name: " ",
-    job: " ",
-  },
-];
+//import { name } from "file-loader";
+
+//import { name } from "file-loader";
 
 export class UserInfo {
-  constructor(name, job) {
-    this._name = name;
-    this._job = job;
+  constructor({ nameSelector, aboutSelector, avatarSelector }) {
+    this._nameElement = document.querySelector(nameSelector);
+    this._aboutElement = document.querySelector(aboutSelector);
+    this._avatarElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
-    this._name = document.querySelector(".popup__description-name");
-    this._job = document.querySelector(".popup__description-job");
+    return {
+      name: this._nameElement.textContent,
+      about: this._aboutElement.textContent,
+      avatar: this._avatarElement.src,
+    };
   }
 
-  setUserInfo() {
-    this.getUserInfo();
-    this._name.value = document.querySelector(".profile__title").textContent;
-    this._job.value = document.querySelector(
-      ".profile__subheading"
-    ).textContent;
+  setUserInfo(name, about, image) {
+    this._nameElement.textContent = name;
+    this._aboutElement.textContent = about;
+    this._avatarElement.src = image;
   }
 }
