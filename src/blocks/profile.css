@@ -119,9 +119,23 @@
   background-position: center;
   width: 24px;
   height: 24px;
-  position: fixed;
+  position: absolute;
   top: 290px;
   left: 178px;
+}
+
+@media screen and (max-width:1280px) {
+  .profile__icon_avatar {
+    top: 290px;
+    left: 237px;
+  }
+}
+
+@media screen and (max-width:1023px) {
+  .profile__icon_avatar {
+    top: 250px;
+    left: 120px;
+  }
 }
 
 
@@ -142,10 +156,10 @@
     padding: 12px;
   }
 
-  .profile__icon_avatar {
+ /* .profile__icon_avatar {
     top: 222px;
     left: 60px;
-  }
+  }*/
 }
 
 @media screen and (max-width:630px) {
